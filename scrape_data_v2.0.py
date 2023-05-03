@@ -4,6 +4,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.action_chains import ActionChains
 
 # Set the location and search query
 location = 'San Giuliano Milanese'
@@ -15,8 +16,14 @@ driver = webdriver.Chrome()
 # Navigate to Google Maps
 driver.get("https://www.google.com/maps")
 
-# Wait for the "Accept" button to appear and click it
-WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".widget-consent-button"))).click()
+# # Wait for the "Accept" button to appear and click it
+# WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".widget-consent-button"))).click()
+
+# Wait for the "Accept" button to appear
+accept_button = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="yDmH0d"]/c-wiz/div/div/div/div[2]/div[1]/div[4]/div[1]/div[1]/form[2]/div/div/button')))
+
+# Click the "Accept" button
+accept_button.click()
 
 # Search for the location
 search_box = driver.find_element_by_name("q")
