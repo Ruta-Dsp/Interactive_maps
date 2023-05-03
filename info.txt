@@ -1,0 +1,1 @@
+# per aggiungere funzione "segnala il tuo luogo" facendo inserire il link gmaps --> https://www.geeksforgeeks.org/how-to-scrape-data-from-google-maps-using-python/
